@@ -94,7 +94,7 @@ esp32-iot-fuzzing-lab/
 
 #  MQTT Fuzzing Setup
 
-##  Requirements
+##  Requirements:
 
 * Mosquitto Broker
 * Python (paho-mqtt)
@@ -174,10 +174,9 @@ python3 mqtt-fuzzing.py
 
 ```
 Message received: Hello
- Large payload detected! Simulating crash...
+Large payload detected! Simulating crash...
 ```
 
----
 
 ##  MQTT Insight
 
@@ -233,7 +232,6 @@ Expected:
 BLE Server Started...
 ```
 
----
 
 ###  Scan Device
 
@@ -249,7 +247,6 @@ ESP32_BLE_FUZZ
 
 Copy MAC address.
 
----
 
 ###  Run BLE Fuzzer
 
@@ -280,11 +277,10 @@ Connected to ESP32
 
 ```
 Received BLE Data (len=140)
- WARNING: Large malformed payload detected!
- Potential overflow attempt!
+WARNING: Large malformed payload detected!
+Potential overflow attempt!
 ```
 
----
 
 ##  BLE Detection Logic
 
