@@ -124,6 +124,8 @@ sudo systemctl start mosquitto
 ###  Install Python Dependencies
 
 ```bash
+python3 -m venv venv
+source venv/bin/activate
 pip3 install paho-mqtt
 ```
 
@@ -194,6 +196,7 @@ Large payload detected! Simulating crash...
 * Arduino IDE
 * Python (bleak)
 * Bluetooth Adapter
+  (VMware users: Use a USB Bluetooth dongle.)
 
 ---
 
@@ -204,7 +207,7 @@ Large payload detected! Simulating crash...
 ```bash
 sudo apt update
 sudo apt install bluetooth bluez
-pip install bleak
+pip3 install bleak
 ```
 
 Start Bluetooth:
@@ -257,6 +260,8 @@ Edit MAC in:
 ble_fuzzer.py
 ```
 
+(Important: Use correct Service UUID and Characteristic UUID)
+
 Run:
 
 ```bash
@@ -293,13 +298,22 @@ Potential overflow attempt!
 
 ---
 
+# Security Weaknesses Demonstrated
+* No MQTT authentication
+* No TLS encryption
+* BLE characteristics writable without authorization
+* No input validation on ESP32
+* Vulnerable to malformed payloads
+
+---
+
 #  Key Features
 
-* ✔ Dual protocol fuzzing (BLE + MQTT)
-* ✔ Real-time detection on ESP32
-* ✔ Random payload generation
-* ✔ Lightweight & easy to run
-* ✔ Perfect for academic demonstrations
+*  Dual protocol fuzzing (BLE + MQTT)
+*  Real-time detection on ESP32
+*  Random payload generation
+*  Lightweight & easy to run
+*  Perfect for academic demonstrations
 
 ---
 
@@ -328,6 +342,8 @@ Potential overflow attempt!
 ```
 sudo systemctl start mosquitto
 ```
+ 
+Check IP address and port (1883)
 
 ---
 
@@ -347,7 +363,7 @@ BleakBluetoothNotAvailableError
 ##  Permission Errors
 
 ```bash
-sudo python3 ble_fuzzer.py
+sudo -E python3 ble_fuzzer.py
 ```
 
 ---
