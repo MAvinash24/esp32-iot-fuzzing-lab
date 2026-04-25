@@ -247,6 +247,7 @@ ESP32_BLE_FUZZ
 
 Copy MAC address.
 
+---
 
 ###  Run BLE Fuzzer
 
